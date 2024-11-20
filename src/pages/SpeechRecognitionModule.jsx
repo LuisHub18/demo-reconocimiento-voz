@@ -14,10 +14,10 @@ const SpeechRecognitionModule = ({children}) => {
       <div className="bg-black text-white p-5">
         <div>
           <button onClick={startListening} className="mr-2 p-2 rounded bg-green-500 text-white border-none cursor-pointer">
-            <BsFillMicFill /> Start
+            <BsFillMicFill /> Iniciar
           </button>
           <button onClick={stopListening} className="p-2 rounded bg-red-500 text-white border-none cursor-pointer">
-            <BsFillMicMuteFill /> Stop
+            <BsFillMicMuteFill /> Detener
           </button>
         </div>
       </div>

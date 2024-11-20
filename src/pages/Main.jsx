@@ -17,12 +17,12 @@ const Main = () => {
     }, [transcript]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen ">
+        <div className="flex flex-col items-center justify-center min-h-screen">
             <h1 className="text-4xl font-bold mb-4">Inicio</h1>
             <p className="text-lg mb-8">¿Qué deseas hacer?</p>
             <div className="space-x-3">
                 <button 
-                    className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+                    className="px-4 py-2 bg-black text-white rounded hover:bg-blue-700"
                     onClick={() => navigate("/search-client")}
                 >
                     Venta

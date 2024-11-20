@@ -1,5 +1,5 @@
 // SpeechContext.js
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 export const SpeechContext = createContext();

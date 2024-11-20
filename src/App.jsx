@@ -1,8 +1,8 @@
-import ArticleSelection from "./components/ArticleSelection";
+import ArticleSelection from "./pages/ArticleSelection";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import SearchClient from "./components/SearchClient";
-import PaymentSelection from "./components/PaymentSelection";
-import Main from "./components/Main";
+import SearchClient from "./pages/SearchClient";
+import PaymentSelection from "./pages/PaymentSelection";
+import Main from "./pages/Main";
 import NotFoundPage from "./404";
 
 const App = () => {
