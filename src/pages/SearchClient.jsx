@@ -80,10 +80,10 @@ const SearchClient = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
-        <div className="bg-white p-8 rounded shadow-md w-full">
-          <h2 className="text-lg font-bold mb-4">Busca un Cliente</h2>
-          <form className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <div className="bg-white p-6 rounded-lg shadow-lg w-full">
+          <h2 className="text-xl font-semibold mb-6">Busca un Cliente</h2>
+          <form className="space-y-6">
             <div>
               <label
                 htmlFor="search"
@@ -94,7 +94,7 @@ const SearchClient = () => {
               <input
                 type="text"
                 id="search"
-                className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Ingresa el nombre del cliente"
                 ref={searchNameInput}
               />
@@ -109,14 +109,14 @@ const SearchClient = () => {
               <input
                 type="text"
                 id="searchNum"
-                className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Ingresa el número del cliente"
                 ref={searchNumInput}
               />
             </div>
-            <div className="flex justify-between items-center mt-4">
+            <div className="flex justify-between items-center mt-6">
               <button
-                className="bg-black text-white py-2 px-4 rounded hover:bg-blue-700"
+                className="w-full bg-black text-white py-2 px-4 rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 type="button"
                 ref={search}
                 onClick={() => {
@@ -129,18 +129,18 @@ const SearchClient = () => {
             <div className="mt-4 text-gray-600">{transcript}</div>
           </form>
         </div>
-        <div className="w-full">
-          <h2 className="text-lg font-bold mb-4">Resultados de búsqueda:</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="w-full mt-6">
+          <h2 className="text-xl font-semibold mb-6">Resultados de búsqueda</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clients.length > 0 ? (
               clients.map((client) => (
                 <div
                   key={client.number}
-                  className="border p-4 rounded-md shadow-sm"
+                  className="border p-4 rounded-lg shadow-sm"
                 >
-                  <p className="font-bold">{client.name}</p>
-                  <p>{client.number}</p>
-                  <p>{client.email}</p>
+                  <p>Nombre: {client.name}</p>
+                  <p>Número: {client.number}</p>
+                  <p>Correo: {client.email}</p>
                 </div>
               ))
             ) : (
@@ -149,9 +149,9 @@ const SearchClient = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-6">
         <button
-          className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800"
+          className="bg-black text-white py-2 px-6 rounded-md hover:bg-gray-700"
           id="next"
           ref={next}
           type="button"
