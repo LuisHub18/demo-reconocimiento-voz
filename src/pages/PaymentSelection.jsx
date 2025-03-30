@@ -7,13 +7,26 @@ const PaymentSelection = () => {
  const payMethod = useRef(null);
   const [totalToPay, setTotalToPay] = useState("100");
   const endSell = useRef(null);
+  const [open, setOpen] = useState(false);
+  
   const { transcript, resetTranscript } = useContext(SpeechContext);
   const navigate = useNavigate();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    navigate("/search-client");
+  };
+
   const instructionsElements = {
     finalizar: endSell,
     efectivo: payMethod,
     crédito: payMethod,
   };
+
   const instructions = Object.keys(instructionsElements);
 
   useEffect(() => {
@@ -33,18 +46,16 @@ const PaymentSelection = () => {
         ? 1
         : element.selectedIndex;
       }
-      if (element instanceof HTMLButtonElement) {
+      if(transcript.includes("finalizar")) {
         element.click();
+        
       }
       if (transcript.includes("atrás")) {
         resetTranscript();
         navigate("/article-selection");
       }
-      if (transcript.includes("finalizar venta")) {
-        element.click();
-        resetTranscript();
-      }
     };
+
     handleInstructions();
   }, [transcript]);
 
@@ -95,8 +106,15 @@ const PaymentSelection = () => {
             </select>
           </div>
         </div>
-          <SimpleDialog />
-          <div className="mt-4 text-gray-600">{transcript}</div>
+        <button
+        className="w-full bg-black text-white p-2 rounded hover:bg-gray-600"
+        ref={endSell}
+        onClick={handleClickOpen}
+        >
+          Finalizar venta
+        </button>
+        <SimpleDialog open={open} handleClose={handleClose} />
+        <div className="mt-4 text-gray-600">{transcript}</div>
       </div>
     </div>
   );

@@ -59,6 +59,7 @@ const SearchClient = () => {
 
         if (element instanceof HTMLButtonElement) {
           element.click();
+          element.focus();
           resetTranscript();
         } else if (element instanceof HTMLInputElement) {
           element.focus();

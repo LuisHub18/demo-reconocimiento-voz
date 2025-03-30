@@ -13,6 +13,7 @@ const ArticleSelection = () => {
   const { transcript, resetTranscript } = useContext(SpeechContext);
   const searchArticleInput = useRef(null);
   const quantityInput = useRef(null);
+  const labelSelect = useRef(null);
   const deliverySelect = useRef(null);
   const next = useRef(null);
   const search = useRef(null);
@@ -20,7 +21,7 @@ const ArticleSelection = () => {
   const instructionsElements = {
     Buscar: search,
     nombre: searchArticleInput,
-    entrega: deliverySelect,
+    entre: deliverySelect,
     recoger: deliverySelect,
     siguiente: next,
     cantidad: quantityInput,
@@ -80,7 +81,7 @@ const ArticleSelection = () => {
         } else if (element instanceof HTMLSelectElement) {
           element.selectedIndex = currentInstruction === "recoger"
             ? 0
-            : currentInstruction === "entrega"
+            : currentInstruction === "entre"
             ? 1
             : element.selectedIndex;
         }
@@ -132,6 +133,22 @@ const ArticleSelection = () => {
           </div>
           <div className="mb-4 grid grid-cols-2 gap-4">
             <div>
+                <label
+                  ref={labelSelect}
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Modo de entrega (E,R)
+                </label>
+                <select
+                  id="delivery"
+                  ref={deliverySelect}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                >
+                  <option>Recoger en tienda</option>
+                  <option>Entrega a domicilio</option>
+                </select>
+              </div>
+            <div>
               <label
                 htmlFor="quantity"
                 className="block text-sm font-medium text-gray-700"
@@ -139,29 +156,14 @@ const ArticleSelection = () => {
                 Cantidad
               </label>
               <input
-                type="number"
                 id="quantity"
+                type="number"
                 placeholder="Cantidad del artículo"
                 ref={quantityInput}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
-            <div>
-              <label
-                htmlFor="delivery"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Modo de entrega (E,R)
-              </label>
-              <select
-                id="delivery"
-                ref={deliverySelect}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm sm:text-sm"
-              >
-                <option>Recoger en tienda</option>
-                <option>Entrega a domicilio</option>
-              </select>
-            </div>
+            
           </div>
           <button
             className="w-full bg-black text-white py-2 px-4 rounded-md shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
